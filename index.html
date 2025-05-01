@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KnowLink - 知識共享平台</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Gun.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gun/sea.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gun/lib/unset.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">KnowLink</div>
+            <div class="nav-items">
+                <button id="loginBtn">登入/註冊</button>
+                <button id="profileBtn" style="display: none;">個人檔案</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>歡迎來到 KnowLink</h1>
+            <p>在這裡，找到志同道合的學習夥伴</p>
+        </section>
+
+        <section class="features">
+            <div class="matching-section">
+                <h2>知識配對</h2>
+                <div id="interests-container">
+                    <!-- 興趣和專長標籤將在這裡動態生成 -->
+                </div>
+            </div>
+
+            <div class="connections-section">
+                <h2>我的學習圈</h2>
+                <div id="connections-container">
+                    <!-- 配對到的使用者將在這裡顯示 -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="loginModal" class="modal">
+        <!-- 登入表單將在這裡動態生成 -->
+    </div>
+
+    <div id="chatModal" class="modal">
+        <div class="chat-container">
+            <div class="chat-header">
+                <h3>與 <span id="chatPartnerName"></span> 交流</h3>
+                <button id="closeChatModal">關閉</button>
+            </div>
+            <div id="chatMessages" class="chat-messages"></div>
+            <div class="chat-input">
+                <input type="text" id="messageInput" placeholder="輸入訊息...">
+                <button id="sendMessage">發送</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
