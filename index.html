@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KnowLink - 知識共享平台</title>
+    <meta name="description" content="KnowLink 是一個幫助用戶找到志同道合學習夥伴的教育社交平台">
+    <meta name="theme-color" content="#4a90e2">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
     <link rel="stylesheet" href="style.css">
     <!-- Gun.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
@@ -35,6 +39,23 @@
                 </div>
             </div>
 
+            <div class="knowledge-sharing-section">
+                <h2>知識分享</h2>
+                <button id="createResourceBtn" class="primary-btn">分享學習資源</button>
+                <button id="createNoteBtn" class="primary-btn">分享筆記</button>
+                <div id="knowledge-resources-container">
+                    <!-- 學習資源列表將在這裡動態生成 -->
+                </div>
+            </div>
+
+            <div class="learning-circles-section">
+                <h2>學習圈</h2>
+                <button id="createCircleBtn" class="primary-btn">創建學習圈</button>
+                <div id="learning-circles-container">
+                    <!-- 學習圈列表將在這裡動態生成 -->
+                </div>
+            </div>
+
             <div class="connections-section">
                 <h2>我的學習圈</h2>
                 <div id="connections-container">
@@ -48,6 +69,41 @@
         <!-- 登入表單將在這裡動態生成 -->
     </div>
 
+    <!-- 學習圈創建模態框 -->
+    <div id="createCircleModal" class="modal">
+        <div class="modal-content">
+            <h2>創建學習圈</h2>
+            <input type="text" id="circleName" placeholder="學習圈名稱" />
+            <textarea id="circleDescription" placeholder="描述（選填）"></textarea>
+            <select id="circleCategory">
+                <option value="">選擇類別</option>
+            </select>
+            <button id="submitCircle" class="primary-btn">創建</button>
+            <button id="closeCircleModal" class="secondary-btn">取消</button>
+        </div>
+    </div>
+
+    <!-- 學習圈詳情模態框 -->
+    <div id="circleDetailModal" class="modal">
+        <div class="modal-content circle-detail">
+            <h2 id="circleDetailName"></h2>
+            <p id="circleDetailDescription"></p>
+            <div class="circle-members">
+                <h3>成員列表</h3>
+                <div id="circleMembersList"></div>
+            </div>
+            <div class="circle-discussion">
+                <h3>討論區</h3>
+                <div id="circleMessages"></div>
+                <div class="message-input">
+                    <input type="text" id="circleMessageInput" placeholder="發送訊息..." />
+                    <button id="sendCircleMessage">發送</button>
+                </div>
+            </div>
+            <button id="closeCircleDetail" class="secondary-btn">關閉</button>
+        </div>
+    </div>
+
     <div id="chatModal" class="modal">
         <div class="chat-container">
             <div class="chat-header">
@@ -59,6 +115,37 @@
                 <input type="text" id="messageInput" placeholder="輸入訊息...">
                 <button id="sendMessage">發送</button>
             </div>
+        </div>
+    </div>
+
+    <!-- 資源分享模態框 -->
+    <div id="resourceModal" class="modal">
+        <div class="modal-content">
+            <h2>分享學習資源</h2>
+            <input type="text" id="resourceTitle" placeholder="資源標題" />
+            <input type="text" id="resourceUrl" placeholder="資源連結" />
+            <textarea id="resourceDescription" placeholder="資源描述"></textarea>
+            <div class="tags-input">
+                <input type="text" id="tagInput" placeholder="新增標籤 (按 Enter 新增)" />
+                <div id="selectedTags" class="selected-tags"></div>
+            </div>
+            <button id="submitResource" class="primary-btn">分享</button>
+            <button id="closeResourceModal" class="secondary-btn">取消</button>
+        </div>
+    </div>
+
+    <!-- 筆記分享模態框 -->
+    <div id="noteModal" class="modal">
+        <div class="modal-content">
+            <h2>分享學習筆記</h2>
+            <input type="text" id="noteTitle" placeholder="筆記標題" />
+            <textarea id="noteContent" placeholder="筆記內容"></textarea>
+            <div class="tags-input">
+                <input type="text" id="noteTagInput" placeholder="新增標籤 (按 Enter 新增)" />
+                <div id="noteSelectedTags" class="selected-tags"></div>
+            </div>
+            <button id="submitNote" class="primary-btn">分享</button>
+            <button id="closeNoteModal" class="secondary-btn">取消</button>
         </div>
     </div>
 
