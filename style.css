@@ -281,8 +281,8 @@ body {
     border-radius: var(--border-radius);
 }
 
-.circle-detail {
-    max-width: 800px !important;
+.circle-container .circle-detail {
+    max-width: 800px;
 }
 
 .circle-members {
